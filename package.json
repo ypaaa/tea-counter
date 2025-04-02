@@ -1,0 +1,16 @@
+{
+  "name": "tea-counter",
+  "version": "1.0.0",
+  "workspaces": [
+    "contracts",
+    "frontend"
+  ],
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "deploy": "cd contracts && npx hardhat run scripts/deploy.ts --network tea"
+  },
+  "repository":{
+    "type": "git",
+    "url" : "https://github.com/ypaaa/tea-counter.git"
+  }
+}
