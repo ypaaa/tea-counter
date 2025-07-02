@@ -1,3 +1,4 @@
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -11,6 +12,14 @@ contract Counter {
     function increment() public {
         count += 1;
         addressCount[msg.sender] += 1;
+        emit CountIncremented(count);
+        emit AddressCountIncremented(msg.sender, addressCount[msg.sender]);
+    }
+
+    function decrement() public {
+        require(count > 0 && addressCount[msg.sender] > 0, 'Something bad happened');
+        count -= 1;
+        addressCount[msg.sender] -= 1;
         emit CountIncremented(count);
         emit AddressCountIncremented(msg.sender, addressCount[msg.sender]);
     }
